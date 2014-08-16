@@ -6,7 +6,7 @@
 
 */
 
-body {
+html {
   margin: 0;
   padding: 0;
   background: #FDFDFD;
@@ -15,9 +15,7 @@ body {
   font-size: 14px;
   font-weight: bold;
   height: 100%;
-}
-/* prevent flickering on load */
-html {
+  /* prevent flickering on load */
   display: none;
 }
 html.ng-scope {
