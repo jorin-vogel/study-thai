@@ -35,3 +35,10 @@ angular.module('study', [])
     }
 
   });
+
+
+
+// prevent scrolling
+document.ontouchmove = function(event){
+  event.preventDefault();
+};
