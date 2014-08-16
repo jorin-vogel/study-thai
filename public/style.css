@@ -34,6 +34,7 @@ input[type="text"] {
   padding-left: 3%;
   background: #272727;
   color: #FDFDFD;
+  border-radius: 0;
 }
 input[type="text"]::-webkit-input-placeholder {
   color: #8D8D8D;
@@ -98,6 +99,7 @@ input[type="text"]:focus {
   text-decoration: none;
 }
 #main aside a:active {
+  outline: none;
   background: #FDFDFD;
   color: #272727;
 }
