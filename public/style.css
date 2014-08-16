@@ -82,6 +82,7 @@ input[type="text"]:focus {
   bottom: 0;
   width: 101%;
   background: #FDFDFD;
+  z-index: 100;
 }
 #main aside.focus {
   position: relative;
