@@ -1,12 +1,17 @@
 angular.module('study', [])
 
-  .run(function ($rootScope, $location) {
+  .run(function ($rootScope, $location, $window) {
 
-    $rootScope.page    = 'main';
-    $rootScope.search  = '';
-    $rootScope.phrases = window.phrases;
-    $rootScope.edit    = false;
+    $rootScope.page        = 'main';
+    $rootScope.search      = '';
+    $rootScope.phrases     = window.phrases;
+    $rootScope.edit        = false;
+    $rootScope.searchFocus = false;
 
+    $rootScope.focusSearch = function () {
+      $rootScope.searchFocus = true;
+      $window.scrollTo(0,0);
+    };
 
     $rootScope.open = function (phrase) {
       $location.url('edit/' + phrase.id);
