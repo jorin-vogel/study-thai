@@ -4,6 +4,8 @@ require 'sinatra/sequel'
 require './database'
 
 set :views, settings.root
+use Rack::Deflater
+
 
 phrases = database[:phrases]
 
