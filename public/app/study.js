@@ -1,11 +1,15 @@
 angular.module('study', [])
 
-  .run(function ($rootScope, $location) {
+  .run(function ($rootScope, $location, $window) {
 
     $rootScope.page    = 'main';
     $rootScope.search  = '';
     $rootScope.phrases = window.phrases;
     $rootScope.edit    = false;
+
+    $rootScope.scrollTop = function () {
+      $window.scrollTo(0,0);
+    };
 
     $rootScope.open = function (phrase) {
       $location.url('edit/' + phrase.id);
