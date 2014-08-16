@@ -83,6 +83,9 @@ input[type="text"]:focus {
   width: 101%;
   background: #FDFDFD;
 }
+#main aside.focus {
+  position: relative;
+}
 
 #main aside a {
   width: 20%;
