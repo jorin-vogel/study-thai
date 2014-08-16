@@ -1,0 +1,133 @@
+/*
+
+  black: #272727
+  white: #FDFDFD
+  grey:  #8D8D8D
+
+*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #FDFDFD;
+  color: #272727;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  height: 100%;
+}
+/* prevent flickering on load */
+html {
+  display: none;
+}
+html.ng-scope {
+  display: block;
+}
+
+input[type="text"] {
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 20px;
+  padding-left: 3%;
+  background: #272727;
+  color: #FDFDFD;
+}
+input[type="text"]::-webkit-input-placeholder {
+  color: #8D8D8D;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+
+
+
+#main {
+  margin-bottom: 49px;
+}
+
+#main ul {
+  padding: 0;
+  margin: 0;
+}
+
+#main li {
+  list-style: none;
+  padding: 5%;
+  border-bottom: 1px dashed #8D8D8D;
+  position: relative;
+}
+
+#main li a {
+  position: absolute;
+  right: 3px;
+  top: 0;
+  padding: 10px;
+  color: #272727;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#main p {
+  margin: 0;
+}
+#main p:first-child {
+  margin-bottom: 3%;
+}
+
+#main aside {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #FDFDFD;
+}
+
+#main aside a {
+  width: 20%;
+  display: block;
+  float: left;
+  height: 50px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bolder;
+  line-height: 44px;
+  background: #272727;
+  color: #FDFDFD;
+  text-decoration: none;
+}
+#main aside a:active {
+  background: #FDFDFD;
+  color: #272727;
+}
+
+#main aside input {
+  width: 77%;
+}
+
+
+
+#edit {
+  background: #272727;
+  height: 100%;
+}
+
+#edit input {
+  border-bottom: 1px dashed #8D8D8D;
+}
+
+#edit button {
+  -webkit-appearance: initial;
+  background: none;
+  border: none;
+  color: #F53C4B;
+  font-size: 20px;
+  padding: 0 3%;
+  margin-top: 25px;
+  position: absolute;
+  right: 0;
+}
+#edit button:focus {
+  outline: none;
+}
