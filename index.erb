@@ -20,6 +20,11 @@
 
   <section id="main" ng-show="!edit">
 
+    <aside ng-class="{ focus: searchFocus }">
+      <a href="#add">+</a>
+      <input type="text" ng-model="search" placeholder="Filter" ng-focus="searchFocus = true" ng-blur="searchFocus = false">
+    </aside>
+
     <ul>
       <li ng-repeat="phrase in phrases | filter:search">
         <p>{{phrase.en}}</p>
@@ -27,11 +32,6 @@
         <a href="#/edit/{{phrase.id}}">✎</a>
       </li>
     </ul>
-
-    <aside ng-class="{ focus: searchFocus }">
-      <a href="#add">+</a>
-      <input type="text" ng-model="search" placeholder="Filter" ng-focus="searchFocus = true" ng-blur="searchFocus = false">
-    </aside>
 
   </section>
 
