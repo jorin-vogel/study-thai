@@ -15,7 +15,10 @@ html, body {
   font-size: 14px;
   font-weight: bold;
   height: 100%;
-  /* prevent flickering on load */
+}
+
+/* prevent flickering on load */
+html {
   display: none;
 }
 html.ng-scope {
