@@ -114,11 +114,6 @@ input[type="text"]:focus {
 
 
 
-#edit {
-  background: #272727;
-  height: 100%;
-}
-
 #edit input {
   border-bottom: 1px dashed #8D8D8D;
 }
