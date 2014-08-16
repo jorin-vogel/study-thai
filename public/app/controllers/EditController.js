@@ -21,11 +21,10 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
       .success(function (res) {
         phrase.id = res.id;
         $rootScope.phrases.unshift(phrase);
-        $location.url('/');
       })
-      .error(function (msg) {
-        alert(msg);
-      });
+      .error(err);
+
+    $location.url('/');
 
   };
 
@@ -37,11 +36,10 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
     $http.put('api/phrases/' + $scope.id, phrase)
       .success(function () {
         updatePhrase($scope.id, phrase);
-        $location.url('/');
       })
-      .error(function (msg) {
-        alert(msg);
-      });
+      .error(err);
+
+    $location.url('/');
 
   };
 
@@ -54,11 +52,10 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
     $http.delete('api/phrases/' + $scope.id)
       .success(function () {
         removePhrase($scope.id);
-        $location.url('/');
       })
-      .error(function (msg) {
-        alert(msg);
-      });
+      .error(err);
+
+    $location.url('/');
 
   };
 
@@ -88,6 +85,11 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
         return;
       }
     }
+  }
+
+  function err(msg) {
+    console.log(msg);
+    alert('Sorry, something went wrong. Try again.');
   }
 
 
