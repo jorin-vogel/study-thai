@@ -36,7 +36,7 @@
   </section>
 
   <form id="edit" ng-if="edit" ng-controller="EditController" ng-submit="id ? update() : add()">
-    <input type="text" ng-model="en" placeholder="English" autofocus="{{!id}}">
+    <input type="text" ng-model="en" placeholder="English">
     <input type="text" ng-model="th" placeholder="Thai">
     <input type="text" ng-model="tags" placeholder="Tags">
     <button></button> <!-- enable submit  -->
