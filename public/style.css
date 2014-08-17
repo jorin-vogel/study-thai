@@ -1,19 +1,19 @@
 /*
 
-  black: #272727
-  white: #FDFDFD
-  grey:  #8D8D8D
+  black     : #272727
+  white     : #FDFDFD
+  grey      : #8D8D8D
+  light-grey: #363636
 
 */
 
 html, body {
   margin: 0;
   padding: 0;
-  background: #272727;
+  background: #FDFDFD;
   color: #272727;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: bold;
+  -webkit-user-select: none;
 }
 
 /* prevent flickering on load */
@@ -22,6 +22,9 @@ html {
 }
 html.ng-scope {
   display: block;
+}
+.overlay {
+  overflow: hidden;
 }
 
 input[type="text"] {
@@ -42,6 +45,7 @@ input[type="text"]::-webkit-input-placeholder {
 }
 input[type="text"]:focus {
   outline: none;
+  background: #363636;
 }
 
 
@@ -62,9 +66,9 @@ input[type="text"]:focus {
 
 #main li a {
   position: absolute;
-  right: 3px;
+  right: 0;
   top: 0;
-  padding: 10px;
+  padding: 14px;
   color: #272727;
   text-decoration: none;
   font-size: 17px;
@@ -72,9 +76,13 @@ input[type="text"]:focus {
 
 #main p {
   margin: 0;
+  font-size: 18px;
+  -webkit-user-select: initial;
 }
 #main p:first-child {
-  margin-bottom: 3%;
+  margin-bottom: 2%;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 #main aside {
@@ -82,7 +90,7 @@ input[type="text"]:focus {
   bottom: 0;
   width: 101%;
   background: #FDFDFD;
-  z-index: 100;
+  z-index: 1;
 }
 #main aside.focus {
   position: relative;
@@ -112,6 +120,14 @@ input[type="text"]:focus {
 }
 
 
+
+#edit {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  background: #272727;
+}
 
 #edit input {
   border-bottom: 1px dashed #8D8D8D;

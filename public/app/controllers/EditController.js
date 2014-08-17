@@ -22,7 +22,9 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
         phrase.id = res.id;
         $rootScope.phrases.unshift(phrase);
       })
-      .error(err);
+      .error(function (msg) {
+        err(msg, 'add', phrase.en);
+      });
 
     $location.url('/');
 
@@ -37,7 +39,9 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
       .success(function () {
         updatePhrase($scope.id, phrase);
       })
-      .error(err);
+      .error(function (msg) {
+        err(msg, 'update', phrase.en);
+      });
 
     $location.url('/');
 
@@ -53,7 +57,9 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
       .success(function () {
         removePhrase($scope.id);
       })
-      .error(err);
+      .error(function (msg) {
+        err(msg, 'delete', phrase.en);
+      });
 
     $location.url('/');
 
@@ -87,9 +93,9 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
     }
   }
 
-  function err(msg) {
-    console.log(msg);
-    alert('Sorry, something went wrong. Try again.');
+  function err(msg, action, phrase) {
+    console.log('ERROR at: '+action+' "'+phrase+'" : ',  msg);
+    alert('Sorry, something went wrong while trying to '+action+' '+phrase+'. Try again.');
   }
 
 

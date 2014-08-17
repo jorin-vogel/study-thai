@@ -16,9 +16,9 @@
   <link rel="shortcut icon" href="favicon.ico">
 
 </head>
-<body>
+<body ng-class="{ overlay: edit }">
 
-  <section id="main" ng-show="!edit">
+  <section id="main">
 
     <aside ng-class="{ focus: searchFocus }">
       <a href="#add">+</a>
@@ -36,8 +36,8 @@
   </section>
 
   <form id="edit" ng-if="edit" ng-controller="EditController" ng-submit="id ? update() : add()">
-    <input type="text" ng-model="en" placeholder="English" required>
-    <input type="text" ng-model="th" placeholder="Thai" required>
+    <input type="text" ng-model="en" placeholder="English" autofocus="!id">
+    <input type="text" ng-model="th" placeholder="Thai">
     <input type="text" ng-model="tags" placeholder="Tags">
     <button></button> <!-- enable submit  -->
     <button ng-show="id" ng-click="destroy($event)">delete</button>
