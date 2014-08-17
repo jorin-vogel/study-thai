@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="study" ng-class="{ overlay: edit }">
+<html ng-app="study">
 <head>
   <title>Study Thai</title>
 
@@ -16,9 +16,9 @@
   <link rel="shortcut icon" href="favicon.ico">
 
 </head>
-<body ng-class="{ overlay: edit }">
+<body>
 
-  <section id="main">
+  <section id="main" ng-show="!edit">
 
     <aside ng-class="{ focus: searchFocus }">
       <a href="#add">+</a>
