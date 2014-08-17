@@ -24,6 +24,7 @@ html.ng-scope {
   display: block;
 }
 .overlay {
+  height: 100%;
   overflow: hidden;
 }
 
