@@ -123,9 +123,9 @@ input[type="text"]:focus {
 
 
 #edit {
-  position: fixed;
+  position: absolute;
   top: 0;
-  bottom: 0;
+  height: 100%;
   z-index: 2;
   background: #272727;
 }
