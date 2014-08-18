@@ -1,4 +1,4 @@
-angular.module('study').controller('EditController', function ($scope, $rootScope, $http, $location, $timeout) {
+angular.module('study').controller('EditController', function ($scope, $rootScope, $http, $location) {
 
 
   $scope.empty = function () {
@@ -6,10 +6,6 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
     $scope.en   = '';
     $scope.th   = '';
     $scope.tags = '';
-
-    $timeout(function () {
-      document.getElementById('en-input').focus();
-    }, 100);
   }
 
   $scope.edit = function (phrase) {
