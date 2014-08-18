@@ -13,7 +13,6 @@ html, body {
   background: #FDFDFD;
   color: #272727;
   font-family: Helvetica, Arial, sans-serif;
-  -webkit-user-select: none;
 }
 
 /* prevent flickering on load */
@@ -69,12 +68,12 @@ input[type="text"]:focus {
   color: #272727;
   text-decoration: none;
   font-size: 17px;
+  -webkit-user-select: none;
 }
 
 #main p {
   margin: 0;
   font-size: 18px;
-  -webkit-user-select: initial;
 }
 #main p:first-child {
   margin-bottom: 2%;
@@ -88,6 +87,7 @@ input[type="text"]:focus {
   width: 101%;
   background: #FDFDFD;
   z-index: 1;
+  -webkit-user-select: none;
 }
 #main aside.focus {
   position: relative;
@@ -123,6 +123,7 @@ input[type="text"]:focus {
   top: 0;
   bottom: 0;
   background: #272727;
+  -webkit-user-select: none;
 }
 
 #edit input {
