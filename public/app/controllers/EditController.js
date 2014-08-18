@@ -6,6 +6,8 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
     $scope.en   = '';
     $scope.th   = '';
     $scope.tags = '';
+
+    document.getElementById('en-input').focus();
   }
 
   $scope.edit = function (phrase) {
