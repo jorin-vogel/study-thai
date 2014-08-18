@@ -9,7 +9,7 @@ angular.module('study').controller('EditController', function ($scope, $rootScop
 
     $timeout(function () {
       document.getElementById('en-input').focus();
-    }, 0);
+    }, 100);
   }
 
   $scope.edit = function (phrase) {
