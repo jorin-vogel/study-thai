@@ -1,16 +1,16 @@
 angular.module('study', [])
 
-  .run(function ($rootScope, $location, $window) {
+  .run(function ($rootScope, $location, $window, $timeout) {
 
     $rootScope.page        = 'main';
     $rootScope.search      = '';
     $rootScope.phrases     = window.phrases;
     $rootScope.edit        = false;
     $rootScope.searchFocus = false;
+    $rootScope.scrollTop   = 0;
 
     $rootScope.focusSearch = function () {
       $rootScope.searchFocus = true;
-      $window.scrollTo(0,0);
     };
 
     $rootScope.open = function (phrase) {
@@ -20,15 +20,20 @@ angular.module('study', [])
     $rootScope.$on('$locationChangeSuccess', function () {
       var match;
       if ($location.url() === '/add') {
+        $rootScope.scrollTop = document.body.scrollTop;
         $rootScope.edit = true;
       }
       else if (match = $location.url().match(/^\/edit\/(.+)/)) {
+        $rootScope.scrollTop = document.body.scrollTop;
         $rootScope.edit = findPhrase(match[1]);
         if (!$rootScope.edit) $location.url('/');
       }
       else {
+        if ($location.url() !== '/') return $location.url('/');
         $rootScope.edit = false;
-        if ($location.url() !== '/') $location.url('/');
+        $timeout(function () {
+          document.body.scrollTop = $rootScope.scrollTop;
+        }, 0);
       }
     });
 
