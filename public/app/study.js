@@ -2,7 +2,6 @@ angular.module('study', [])
 
   .run(function ($rootScope, $location, $window, $timeout) {
 
-    $rootScope.page        = 'main';
     $rootScope.search      = '';
     $rootScope.phrases     = window.phrases;
     $rootScope.edit        = false;
