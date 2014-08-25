@@ -18,7 +18,7 @@
 </head>
 <body>
 
-  <section id="main" ng-show="!edit">
+  <section id="main">
 
     <aside ng-class="{ focus: searchFocus }">
       <a href="#add">+</a>
@@ -35,13 +35,18 @@
 
   </section>
 
-  <form id="edit" ng-show="edit" ng-controller="EditController" ng-submit="id ? update() : add()">
-    <input type="text" ng-model="en" placeholder="English">
-    <input type="text" ng-model="th" placeholder="Thai">
-    <input type="text" ng-model="tags" placeholder="Tags">
-    <button></button> <!-- enable submit  -->
-    <button ng-show="id" ng-click="destroy($event)">delete</button>
-  </form>
+
+  <section id="edit" ng-class="{ show: edit }">
+
+    <form ng-controller="EditController" ng-submit="id ? update() : add()">
+      <input type="text" ng-model="en" placeholder="English">
+      <input type="text" ng-model="th" placeholder="Thai">
+      <input type="text" ng-model="tags" placeholder="Tags">
+      <button></button> <!-- enable submit  -->
+      <button ng-show="id" ng-click="destroy($event)">delete</button>
+    </form>
+
+  </section>
 
 
   <script>window.phrases = <%= @data %>;</script>
