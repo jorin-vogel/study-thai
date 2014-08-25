@@ -79,6 +79,7 @@ input[type="text"]:focus {
 #main p:first-child {
   margin-bottom: 2%;
   font-size: 16px;
+  font-weight: 400;
 }
 
 #main aside {

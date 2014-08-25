@@ -19,6 +19,7 @@ angular.module('study', [])
     $rootScope.$on('$locationChangeSuccess', function () {
       var match;
       if ($location.url() === '/add') {
+<<<<<<< HEAD
         $rootScope.scrollTop = document.body.scrollTop;
         $rootScope.edit = true;
       }
@@ -33,14 +34,35 @@ angular.module('study', [])
         $timeout(function () {
           document.body.scrollTop = $rootScope.scrollTop;
         }, 0);
+=======
+	$rootScope.scrollTop = document.body.scrollTop;
+	$rootScope.edit = true;
+      }
+      else if (match = $location.url().match(/^\/edit\/(.+)/)) {
+	$rootScope.scrollTop = document.body.scrollTop;
+	$rootScope.edit = findPhrase(match[1]);
+	if (!$rootScope.edit) $location.url('/');
+      }
+      else {
+	if ($location.url() !== '/') return $location.url('/');
+	$rootScope.edit = false;
+	$timeout(function () {
+	  document.body.scrollTop = $rootScope.scrollTop;
+	}, 0);
+>>>>>>> use light font
       }
     });
 
 
     function findPhrase(id) {
       for (var i = 0; i < $rootScope.phrases.length; i++) {
+<<<<<<< HEAD
         var phrase = $rootScope.phrases[i];
         if (phrase.id == id) return phrase;
+=======
+	var phrase = $rootScope.phrases[i];
+	if (phrase.id == id) return phrase;
+>>>>>>> use light font
       }
     }
 
@@ -68,11 +90,19 @@ angular.module('study').controller('EditController', ["$scope", "$rootScope", "$
 
     $http.post('api/phrases', phrase)
       .success(function (res) {
+<<<<<<< HEAD
         phrase.id = res.id;
         $rootScope.phrases.unshift(phrase);
       })
       .error(function (msg) {
         err(msg, 'add', phrase.en);
+=======
+	phrase.id = res.id;
+	$rootScope.phrases.unshift(phrase);
+      })
+      .error(function (msg) {
+	err(msg, 'add', phrase.en);
+>>>>>>> use light font
       });
 
     $location.url('/');
@@ -86,10 +116,17 @@ angular.module('study').controller('EditController', ["$scope", "$rootScope", "$
 
     $http.put('api/phrases/' + $scope.id, phrase)
       .success(function () {
+<<<<<<< HEAD
         updatePhrase($scope.id, phrase);
       })
       .error(function (msg) {
         err(msg, 'update', phrase.en);
+=======
+	updatePhrase($scope.id, phrase);
+      })
+      .error(function (msg) {
+	err(msg, 'update', phrase.en);
+>>>>>>> use light font
       });
 
     $location.url('/');
@@ -104,10 +141,17 @@ angular.module('study').controller('EditController', ["$scope", "$rootScope", "$
 
     $http.delete('api/phrases/' + $scope.id)
       .success(function () {
+<<<<<<< HEAD
         removePhrase($scope.id);
       })
       .error(function (msg) {
         err(msg, 'delete', phrase.en);
+=======
+	removePhrase($scope.id);
+      })
+      .error(function (msg) {
+	err(msg, 'delete', phrase.en);
+>>>>>>> use light font
       });
 
     $location.url('/');
@@ -127,8 +171,13 @@ angular.module('study').controller('EditController', ["$scope", "$rootScope", "$
     for (var i = 0; i < $rootScope.phrases.length; i++) {
       var phrase = $rootScope.phrases[i];
       if (phrase.id === id) {
+<<<<<<< HEAD
         angular.extend(phrase, data)
         return;
+=======
+	angular.extend(phrase, data)
+	return;
+>>>>>>> use light font
       }
     }
   }
@@ -136,8 +185,13 @@ angular.module('study').controller('EditController', ["$scope", "$rootScope", "$
   function removePhrase(id) {
     for (var i = 0; i < $rootScope.phrases.length; i++) {
       if ($rootScope.phrases[i].id === id) {
+<<<<<<< HEAD
         $rootScope.phrases.splice(i, 1);
         return;
+=======
+	$rootScope.phrases.splice(i, 1);
+	return;
+>>>>>>> use light font
       }
     }
   }
