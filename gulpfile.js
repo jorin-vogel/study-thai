@@ -22,7 +22,6 @@ gulp.task('dev', function () {
     .pipe(sourcemaps.init())
       .pipe(concat(JS_OUT))
       .pipe(ngAnnotate())
-      .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('.'));
 });
