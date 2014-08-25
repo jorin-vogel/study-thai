@@ -14,10 +14,8 @@ It's a quick way to save phrases and find the right word quickly on your phone.
 * ruby
 
 
-# INSTALL
+# USAGE
 
-```
-bundle install
-npm install
-gulp build
-```
+* Install: `bundle install; npm install gulp build`
+* Watch files for development: `gulp`
+* Start server: 'ruby server.rb'

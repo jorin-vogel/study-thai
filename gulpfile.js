@@ -27,6 +27,6 @@ gulp.task('dev', function () {
 });
 
 
-gulp.task('watch', ['dev'], function () {
+gulp.task('default', ['dev'], function () {
   gulp.watch(JS_PATHS, ['dev']);
 });
