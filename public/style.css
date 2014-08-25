@@ -111,8 +111,11 @@ input[type="text"]:focus {
   background: #FDFDFD;
   color: #272727;
 }
+#main aside.focus a {
+  margin-left: -20%;
+}
 
-#main aside input {
+#main aside:not(.focus) input {
   width: 76%;
 }
 
