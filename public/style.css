@@ -61,7 +61,7 @@ input[type="text"]:focus {
   -webkit-transform: translate3d(-20%, 0, 0);
   opacity: 0;
 }
-#main #phrases.animate {
+#main.animate #phrases {
   -webkit-transition: opacity 0.3s ease-in, -webkit-transform 0.3s ease-in;
 }
 
