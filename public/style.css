@@ -165,6 +165,11 @@ disable on mobile. maybe on desktop ...
 #edit input {
   border-bottom: 1px dashed #8D8D8D;
 }
+#edit input:first-child {
+  border-top: 1px dashed #8D8D8D;
+  margin-top: -2px;
+}
+
 
 #edit button {
   -webkit-appearance: initial;
