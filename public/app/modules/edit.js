@@ -51,7 +51,7 @@
   function submit() {
     loadFromDOM();
     phrase.id ? update() : create();
-    form.blur();
+    lang1.blur(); lang2.blur(); tags.blur();
     app.router.go('/');
   }
 
