@@ -10,18 +10,17 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #FDFDFD;
+  background: #272727;
   color: #272727;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 300;
+  -webkit-transition: opacity 0.3s 0.3s ease-in;
+  height: 100%;
 }
 
-/* prevent flickering on load */
-html {
-  display: none;
-}
-html.ng-scope {
-  display: block;
+
+a:focus, a:active {
+  outline: none;
 }
 
 input[type="text"] {
@@ -46,27 +45,32 @@ input[type="text"]:focus {
 }
 
 
-#main ul {
+#main {
+  height: 100%;
+  background: #FDFDFD;
+}
+
+#phrases {
   padding: 0;
   margin: 0;
   padding-bottom: 49px;
   background: #FDFDFD;
   -webkit-transform: translate3d(0, 0, 0);
 }
-#main.hide ul {
-  -webkit-transition: opacity 0.3s ease-in, -webkit-transform 0.3s ease-in;
+#main.hide #phrases {
   -webkit-transform: translate3d(-20%, 0, 0);
   opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in, -webkit-transform 0.3s ease-in;
 }
 
-#main li {
+#phrases li {
   list-style: none;
   padding: 5%;
   border-bottom: 1px dashed #8D8D8D;
   position: relative;
 }
 
-#main li a {
+#phrases li a {
   position: absolute;
   right: 0;
   top: 0;
@@ -76,16 +80,21 @@ input[type="text"]:focus {
   font-size: 17px;
   -webkit-user-select: none;
 }
+#phrases li a:focus, #phrases li a:active {
+  font-size: 22px;
+}
 
-#main p {
+#phrases p {
   margin: 0;
   font-size: 18px;
 }
-#main p:first-child {
+#phrases p:first-child {
   margin-bottom: 2%;
   font-size: 16px;
   font-weight: 400;
 }
+
+
 
 #main aside {
   position: fixed;
@@ -100,8 +109,8 @@ input[type="text"]:focus {
   position: relative;
 }
 #main.hide aside {
-  -webkit-transition: -webkit-transform 0.3s ease-in;
   -webkit-transform: translate3d(0, 100%, 0);
+  -webkit-transition: -webkit-transform 0.3s ease-in;
 }
 
 #main aside a {
@@ -116,8 +125,7 @@ input[type="text"]:focus {
   color: #FDFDFD;
   text-decoration: none;
 }
-#main aside a:active {
-  outline: none;
+#main aside a:focus, #main aside a:active {
   background: #FDFDFD;
   color: #272727;
 }
@@ -125,7 +133,7 @@ input[type="text"]:focus {
   margin-left: -20%;
 }
 
-#main aside:not(.focus) input {
+#search:not(:focus) {
   width: 76%;
 }
 
@@ -142,12 +150,16 @@ input[type="text"]:focus {
   -webkit-transform: translate3d(100%, 0, 0);
 }
 #edit.show {
-  -webkit-transition: -webkit-transform 0.3s ease-in;
   -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s ease-in;
 }
 
 #edit input {
   border-bottom: 1px dashed #8D8D8D;
+}
+
+#edit input[type="submit"] {
+  display: none;
 }
 
 #edit button {
@@ -161,6 +173,10 @@ input[type="text"]:focus {
   position: absolute;
   right: 0;
 }
-#edit button:focus {
+#edit button:focus, #edit button:active {
   outline: none;
+  text-decoration: underline;
+}
+#edit button.hide {
+  display: none;
 }

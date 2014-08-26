@@ -1,9 +1,8 @@
 require 'json'
 require 'sinatra'
-require 'sinatra/sequel'
 require './database'
 
-# set :environment, :production
+set :environment, :production
 set :views, settings.root
 use Rack::Deflater
 
@@ -11,10 +10,14 @@ use Rack::Deflater
 phrases = database[:phrases]
 
 
-get '/' do
-  @data = phrases.select(:id, :en, :th, :tags).reverse_order(:timestamp).all.to_json
+get %r{^/(add/?|edit/[0-9]+/?)?$} do
+  @data = phrases.select(:id, :lang1, :lang2, :tags).reverse_order(:timestamp).all.to_json
 
   erb :index
+end
+
+get '/*' do
+  redirect '/'
 end
 
 post '/api/phrases' do
