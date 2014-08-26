@@ -29,6 +29,11 @@
   el.addEventListener('focus', app.aside.focus);
   el.addEventListener('blur', app.aside.blur);
 
+  el.addEventListener('keyup', function (e) {
+    // enter or escape
+    if (e.keyCode == 13 || e.keyCode == 27) el.blur();
+  });
+
   el.addEventListener('input', function () {
     el.value ? filterPhrases() : showAll();
   });
