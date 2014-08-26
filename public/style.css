@@ -46,12 +46,17 @@ input[type="text"]:focus {
 }
 
 
-
 #main ul {
   padding: 0;
   margin: 0;
   padding-bottom: 49px;
   background: #FDFDFD;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+#main.hide ul {
+  -webkit-transition: opacity 0.3s ease-in, -webkit-transform 0.3s ease-in;
+  -webkit-transform: translate3d(-20%, 0, 0);
+  opacity: 0;
 }
 
 #main li {
@@ -89,9 +94,14 @@ input[type="text"]:focus {
   background: #FDFDFD;
   z-index: 1;
   -webkit-user-select: none;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 #main aside.focus {
   position: relative;
+}
+#main.hide aside {
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  -webkit-transform: translate3d(0, 100%, 0);
 }
 
 #main aside a {
@@ -132,8 +142,8 @@ input[type="text"]:focus {
   -webkit-transform: translate3d(100%, 0, 0);
 }
 #edit.show {
+  -webkit-transition: -webkit-transform 0.3s ease-in;
   -webkit-transform: translate3d(0, 0, 0);
-  -webkit-transition: -webkit-transform 0.2s ease-in;
 }
 
 #edit input {

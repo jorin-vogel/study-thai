@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sinatra/sequel'
 require './database'
 
+# set :environment, :production
 set :views, settings.root
 use Rack::Deflater
 

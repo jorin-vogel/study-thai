@@ -20,6 +20,7 @@ angular.module('study', [])
       var match;
       if ($location.url() === '/add') {
         $rootScope.scrollTop = document.body.scrollTop;
+        document.body.scrollTop = 0;
         $rootScope.edit = true;
       }
       else if (match = $location.url().match(/^\/edit\/(.+)/)) {
