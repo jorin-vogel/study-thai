@@ -8,7 +8,7 @@
   lang1  = form.querySelector('.lang1');
   lang2  = form.querySelector('.lang2');
   tags   = form.querySelector('.tags');
-  button = el.querySelector('button');
+  button = el.querySelector('.destroy');
 
 
   function open(animate, id) {
