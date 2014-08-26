@@ -105,18 +105,20 @@ input[type="text"]:focus {
   background: #FDFDFD;
   z-index: 1;
   -webkit-user-select: none;
-  -webkit-transform: translate3d(0, 0, 0);
+  /*-webkit-transform: translate3d(0, 0, 0);*/
 }
 #main aside.focus {
   position: relative;
 }
+/*
+disable on mobile. maybe on desktop ...
 #main.hide aside {
   -webkit-transform: translate3d(0, 100%, 0);
 }
 #main.animate aside {
   -webkit-transition: -webkit-transform 0.3s ease-in;
 }
-
+*/
 #main aside a {
   width: 20%;
   display: block;

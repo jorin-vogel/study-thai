@@ -51,6 +51,10 @@
   function submit() {
     loadFromDOM();
     phrase.id ? update() : create();
+    goHome();
+  }
+
+  function goHome() {
     lang1.blur(); lang2.blur(); tags.blur();
     app.router.go('/');
   }
@@ -91,7 +95,7 @@
       app.list.remove(phrase);
     });
 
-    app.router.go('/');
+    goHome();
   }
 
 
