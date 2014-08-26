@@ -36,7 +36,7 @@
   </section>
 
 
-  <section id="edit" ng-class="{ show: edit }">
+  <section id="edit" ng-if="edit" ng-class="{ show: edit }">
 
     <form ng-controller="EditController" ng-submit="id ? update() : add()">
       <input type="text" ng-model="en" placeholder="English">
