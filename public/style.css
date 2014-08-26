@@ -60,6 +60,8 @@ input[type="text"]:focus {
 #main.hide #phrases {
   -webkit-transform: translate3d(-20%, 0, 0);
   opacity: 0;
+}
+#main #phrases.animate {
   -webkit-transition: opacity 0.3s ease-in, -webkit-transform 0.3s ease-in;
 }
 
@@ -110,6 +112,8 @@ input[type="text"]:focus {
 }
 #main.hide aside {
   -webkit-transform: translate3d(0, 100%, 0);
+}
+#main.animate aside {
   -webkit-transition: -webkit-transform 0.3s ease-in;
 }
 
@@ -151,6 +155,8 @@ input[type="text"]:focus {
 }
 #edit.show {
   -webkit-transform: translate3d(0, 0, 0);
+}
+#edit.animate {
   -webkit-transition: -webkit-transform 0.3s ease-in;
 }
 
@@ -159,7 +165,7 @@ input[type="text"]:focus {
 }
 
 #edit input[type="submit"] {
-  display: none;
+  visibility: hidden;
 }
 
 #edit button {

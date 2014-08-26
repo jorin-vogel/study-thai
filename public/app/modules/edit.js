@@ -11,17 +11,19 @@
   button = el.querySelector('button');
 
 
-  function open(id) {
+  function open(animate, id) {
     id ? load(id) : empty();
 
     lang1.value = phrase.lang1;
     lang2.value = phrase.lang2;
     tags.value  = phrase.tags;
 
+    el.classList[animate ? 'add' : 'remove']('animate');
     el.classList.add('show');
   }
 
-  function close() {
+  function close(animate) {
+    el.classList[animate ? 'add' : 'remove']('animate');
     el.classList.remove('show');
   }
 

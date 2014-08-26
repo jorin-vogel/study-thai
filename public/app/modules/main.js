@@ -5,11 +5,13 @@
 
   el = doc.getElementById('main');
 
-  function open() {
+  function open(animate) {
+    el.classList[animate ? 'add' : 'remove']('animate');
     el.classList.remove('hide');
   }
 
-  function close() {
+  function close(animate) {
+    el.classList[animate ? 'add' : 'remove']('animate');
     el.classList.add('hide');
   }
 

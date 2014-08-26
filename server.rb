@@ -2,7 +2,7 @@ require 'json'
 require 'sinatra'
 require './database'
 
-set :environment, :production
+# set :environment, :production
 set :views, settings.root
 use Rack::Deflater
 
