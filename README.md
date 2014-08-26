@@ -20,4 +20,4 @@ You can access your phrases on any device and search for the right words without
 
 * Install: `bundle install; npm install; gulp build`
 * Watch files for development: `gulp`
-* Start server: 'ruby server.rb'
+* Start server: `ruby server.rb`
