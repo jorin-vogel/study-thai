@@ -48,8 +48,14 @@
     phrase.tags  = tags.value;
   }
 
-  function create() {
+  function submit() {
     loadFromDOM();
+    phrase.id ? update() : create();
+    form.blur();
+    app.router.go('/');
+  }
+
+  function create() {
     app.request({
       method: 'post',
       data: phrase,
@@ -59,12 +65,9 @@
       phrase.id = res.id;
       app.list.add(phrase);
     });
-
-    app.router.go('/');
   }
 
   function update() {
-    loadFromDOM();
     app.request({
       method: 'put',
       id: phrase.id,
@@ -74,8 +77,6 @@
     }, function () {
       app.list.update(phrase);
     });
-
-    app.router.go('/');
   }
 
   function destroy() {
@@ -96,7 +97,7 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    phrase.id ? update() : create();
+    submit();
   });
 
   button.addEventListener('click', function (e) {
