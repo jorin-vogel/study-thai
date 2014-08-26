@@ -43,15 +43,11 @@
   }
 
   function loadFromDOM() {
-    phrase.lang1 = lang1.value;
-    phrase.lang2 = lang2.value;
-    phrase.tags  = tags.value;
-  }
-
-  function submit() {
-    loadFromDOM();
-    phrase.id ? update() : create();
-    goHome();
+    return {
+      lang1: lang1.value,
+      lang2: lang2.value,
+      tags:  tags.value
+    };
   }
 
   function goHome() {
@@ -59,7 +55,15 @@
     app.router.go('/');
   }
 
+  function extend(source, target) {
+    Object.keys(target).forEach(function (prop) {
+      source[prop] = target[prop];
+    })
+    return source;
+  }
+
   function create() {
+    extend(phrase, loadFromDOM());
     app.request({
       method: 'post',
       data: phrase,
@@ -67,20 +71,28 @@
       action: 'create'
     }, function (res) {
       phrase.id = res.id;
-      app.list.add(phrase);
+      app.phrase.add(phrase);
+      app.list.updateLink(phrase);
     });
+
+    app.list.add(phrase);
+    goHome();
   }
 
   function update() {
+    var phraseUpdate = extend(extend({}, phrase), loadFromDOM());
     app.request({
       method: 'put',
-      id: phrase.id,
-      data: phrase,
-      name: phrase.lang1,
+      id: phraseUpdate.id,
+      data: phraseUpdate,
+      name: phraseUpdate.lang1,
       action: 'update'
     }, function () {
-      app.list.update(phrase);
+      extend(phrase, phraseUpdate);
     });
+
+    app.list.update(phrase, phraseUpdate);
+    goHome();
   }
 
   function destroy() {
@@ -92,16 +104,17 @@
       name: phrase.lang1,
       action: 'delete'
     }, function () {
-      app.list.remove(phrase);
+      app.phrase.remove(phrase);
     });
 
+    app.list.remove(phrase);
     goHome();
   }
 
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    submit();
+    phrase.id ? update() : create();
   });
 
   button.addEventListener('click', function (e) {

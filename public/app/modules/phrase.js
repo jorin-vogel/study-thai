@@ -40,7 +40,6 @@
   function remove(phrase) {
     var index = data.indexOf(phrase);
     data.splice(index, 1);
-    return index;
   }
 
 

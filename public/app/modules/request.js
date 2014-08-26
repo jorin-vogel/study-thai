@@ -25,6 +25,7 @@
     };
 
     request.onerror = function (msg) {
+      app.list.reload();
       err(msg, options.action, options.name);
     };
 

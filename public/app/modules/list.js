@@ -18,21 +18,29 @@
     var paragraphs = item.getElementsByTagName('p');
     paragraphs[0].textContent = phrase.lang1;
     paragraphs[1].textContent = phrase.lang2;
+    setLink(item, phrase);
+  }
+
+  function setLink(item, phrase) {
     item.querySelector('a').setAttribute('href', '/edit/' + phrase.id);
   }
 
   function add(phrase) {
-    el.insertBefore( createItem(phrase), el.firstChild );
-    app.phrase.add(phrase);
+    el.insertBefore(createItem(phrase), el.firstChild);
   }
 
-  function update(phrase) {
+  function updateLink(phrase) {
     var index = app.phrase.indexOf(phrase);
-    updateItem(el.children[index], phrase);
+    setLink(el.children[index], phrase);
+  }
+
+  function update(oldPhrase, newPhrase) {
+    var index = app.phrase.indexOf(oldPhrase);
+    updateItem(el.children[index], newPhrase);
   }
 
   function remove(phrase) {
-    var index = app.phrase.remove(phrase);
+    var index = app.phrase.indexOf(phrase);
     el.removeChild(el.children[index]);
   }
 
@@ -44,6 +52,11 @@
     el.appendChild(itemContainer);
   }
 
+  function reload() {
+    el.innerHTML = '';
+    load();
+  }
+
 
   doc.addEventListener('DOMContentLoaded', load);
 
@@ -53,7 +66,9 @@
     items: items,
     add: add,
     update: update,
-    remove: remove
+    remove: remove,
+    reload: reload,
+    updateLink: updateLink
   };
 
 }(document, slangbook);
