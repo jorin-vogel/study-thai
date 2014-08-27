@@ -111,9 +111,21 @@
     goHome();
   }
 
+  var submitBlocked = (function () {
+    var toggle = false;
+    return function () {
+      if (toggle) return true;
+      toggle = true;
+      setTimeout(function () {
+        toggle = false;
+      }, 3000);
+      return false;
+    };
+  })();
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (submitBlocked()) return;
     phrase.id ? update() : create();
   });
 
