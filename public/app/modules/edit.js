@@ -62,9 +62,9 @@
   }
 
 
-  function goHome() {
+  function goHome(replace) {
     lang1.blur(); lang2.blur(); tags.blur();
-    app.router.go('/');
+    app.router.go('/', replace);
   }
 
 
@@ -100,7 +100,7 @@
 
     phrase.id = temporaryId();
     app.list.add(phrase);
-    goHome();
+    goHome(true);
   }
 
 
@@ -139,7 +139,7 @@
     });
 
     app.list.remove(phrase);
-    goHome();
+    goHome(true);
   }
 
 

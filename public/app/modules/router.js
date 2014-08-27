@@ -4,8 +4,8 @@
 
   app.router = {
 
-    go: function (url) {
-      history.pushState(null, null, url);
+    go: function (url, replace) {
+      history[replace ? 'replaceState' : 'pushState'](null, null, url);
       handleRoute(true);
     }
 
