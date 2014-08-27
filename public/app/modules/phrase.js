@@ -29,10 +29,6 @@
     }
   }
 
-  function indexOf(phrase) {
-    return data.indexOf(phrase);
-  }
-
   function add(phrase) {
     data.unshift(phrase);
   }
@@ -47,7 +43,6 @@
     forEach: forEach,
     match: queryMatchesForIndex,
     byId: byId,
-    indexOf: indexOf,
     add: add,
     remove: remove
   };

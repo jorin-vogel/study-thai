@@ -18,30 +18,36 @@
     var paragraphs = item.getElementsByTagName('p');
     paragraphs[0].textContent = phrase.lang1;
     paragraphs[1].textContent = phrase.lang2;
-    setLink(item, phrase);
+    setItemId(item, phrase.id);
   }
 
-  function setLink(item, phrase) {
-    item.querySelector('a').setAttribute('href', '/edit/' + phrase.id);
+  function setItemId(item, id) {
+    item.setAttribute('data-id', id);
+    item.querySelector('a').setAttribute('href', '/edit/' + id);
   }
 
   function add(phrase) {
-    el.insertBefore(createItem(phrase), el.firstChild);
+    var item = createItem(phrase);
+    item.querySelector('a').display = 'none';
+    el.insertBefore(item, el.firstChild);
   }
 
-  function updateLink(phrase) {
-    var index = app.phrase.indexOf(phrase);
-    setLink(el.children[index], phrase);
+  function updateId(oldId, newId) {
+    var item = byId(oldId);
+    setItemId(item, newId);
+    item.querySelector('a').display = '';
   }
 
   function update(oldPhrase, newPhrase) {
-    var index = app.phrase.indexOf(oldPhrase);
-    updateItem(el.children[index], newPhrase);
+    updateItem(byId(oldPhrase.id), newPhrase);
   }
 
   function remove(phrase) {
-    var index = app.phrase.indexOf(phrase);
-    el.removeChild(el.children[index]);
+    el.removeChild(byId(phrase.id));
+  }
+
+  function byId(id) {
+    return el.querySelector('[data-id="' + id + '"]');
   }
 
   function load() {
@@ -68,7 +74,7 @@
     update: update,
     remove: remove,
     reload: reload,
-    updateLink: updateLink
+    updateId: updateId
   };
 
 }(document, slangbook);

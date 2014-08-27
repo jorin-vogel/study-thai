@@ -62,6 +62,10 @@
     return source;
   }
 
+  function temporaryId() {
+    return Date.now();
+  }
+
   function create() {
     extend(phrase, loadFromDOM());
     app.request({
@@ -70,13 +74,12 @@
       name: phrase.lang1,
       action: 'create'
     }, function (res) {
+      app.list.updateId(phrase.id, res.id);
       phrase.id = res.id;
-      console.log('phrases add '+phrase.lang1)
       app.phrase.add(phrase);
-      app.list.updateLink(phrase);
     });
 
-    console.log('list add '+phrase.lang1)
+    phrase.id = temporaryId();
     app.list.add(phrase);
     goHome();
   }
@@ -90,11 +93,9 @@
       name: phraseUpdate.lang1,
       action: 'update'
     }, function () {
-      console.log('extend '+phrase.lang1+' with '+phraseUpdate.lang1)
       extend(phrase, phraseUpdate);
     });
 
-    console.log('list update '+phrase.lang1+' with '+phraseUpdate.lang1)
     app.list.update(phrase, phraseUpdate);
     goHome();
   }
@@ -115,6 +116,7 @@
     goHome();
   }
 
+  // TODO: not sure if neccessary
   var submitBlocked = (function () {
     var toggle = false;
     return function () {
