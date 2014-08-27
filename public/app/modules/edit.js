@@ -12,7 +12,6 @@
 
 
   function open(animate, id) {
-    console.log('open', arguments)
     id ? load(id) : empty();
 
     lang1.value = phrase.lang1;
@@ -29,14 +28,12 @@
   }
 
   function load(id) {
-    console.log('load')
     phrase = app.phrase.byId(id);
     if (!phrase) app.router.go('/');
     button.classList.remove('hide');
   }
 
   function empty() {
-    console.log('empty')
     phrase = {
       lang1: '',
       lang2: '',
@@ -94,7 +91,6 @@
       extend(phrase, phraseUpdate);
     });
 
-    console.log('edit.js update')
     app.list.update(phrase, phraseUpdate);
     goHome();
   }
