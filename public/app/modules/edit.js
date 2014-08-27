@@ -71,10 +71,12 @@
       action: 'create'
     }, function (res) {
       phrase.id = res.id;
+      console.log('phrases add '+phrase.lang1)
       app.phrase.add(phrase);
       app.list.updateLink(phrase);
     });
 
+    console.log('list add '+phrase.lang1)
     app.list.add(phrase);
     goHome();
   }
@@ -88,9 +90,11 @@
       name: phraseUpdate.lang1,
       action: 'update'
     }, function () {
+      console.log('extend '+phrase.lang1+' with '+phraseUpdate.lang1)
       extend(phrase, phraseUpdate);
     });
 
+    console.log('list update '+phrase.lang1+' with '+phraseUpdate.lang1)
     app.list.update(phrase, phraseUpdate);
     goHome();
   }
