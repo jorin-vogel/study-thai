@@ -152,7 +152,7 @@ disable on mobile. maybe on desktop ...
 
 #edit {
   position: fixed;
-  top: 0;
+  top: -1px;
   bottom: 0;
   background: #272727;
   -webkit-user-select: none;
@@ -172,7 +172,6 @@ disable on mobile. maybe on desktop ...
 }
 #edit input:first-child {
   border-top: 1px dashed #8D8D8D;
-  margin-top: -2px;
 }
 
 
