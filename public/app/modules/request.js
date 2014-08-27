@@ -3,34 +3,36 @@
   var BASE_URL = '/api/phrases';
 
 
-  function request(options, cb) {
-    var request, url, method;
+  app.request = function (options, cb) {
+    var req, url, method;
 
-    request = new XMLHttpRequest();
+    req = new XMLHttpRequest();
     url = options.id ? BASE_URL +'/'+options.id : BASE_URL;
     method = options.method.toUpperCase();
 
-    request.open(method, url, true);
+    req.open(method, url, true);
 
     if (method == 'POST' || method == 'PUT') {
-      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
     }
 
-    request.onload = function () {
-      if (request.status >= 200 && request.status < 400) {
-        cb(request.responseText ? JSON.parse(request.responseText): undefined);
+    req.onload = function () {
+      if (req.status >= 200 && req.status < 400) {
+        cb(req.responseText ? JSON.parse(req.responseText): undefined);
       } else {
-        request.onerror(request.statusText);
+        req.onerror(req.statusText);
       }
     };
 
-    request.onerror = function (msg) {
+    req.onerror = function (msg) {
       app.list.reload();
       err(msg, options.action, options.name);
     };
 
-    request.send(JSON.stringify(options.data));
-  }
+    req.send(JSON.stringify(options.data));
+  };
+
+
 
   function err(msg, action, phrase) {
     console.log('ERROR at: '+action+' "'+phrase+'" : ',  msg);
@@ -38,7 +40,5 @@
   }
 
 
-
-  app.request = request;
 
 }(document, slangbook);

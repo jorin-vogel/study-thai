@@ -5,21 +5,23 @@
 
   el = doc.getElementById('main');
 
-  function open(animate) {
-    el.classList[animate ? 'add' : 'remove']('animate');
-    el.classList.remove('hide');
-  }
-
-  function close(animate) {
-    el.classList[animate ? 'add' : 'remove']('animate');
-    el.classList.add('hide');
-  }
-
 
 
   app.main = {
-    open: open,
-    close: close
+
+    open: function (animate) {
+      el.classList[animate ? 'add' : 'remove']('animate');
+      el.classList.remove('hide');
+    },
+
+
+    close: function (animate) {
+      el.classList[animate ? 'add' : 'remove']('animate');
+      el.classList.add('hide');
+    }
+
   };
+
+
 
 }(document, slangbook);

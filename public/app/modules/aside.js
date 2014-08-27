@@ -5,19 +5,21 @@
 
   el = doc.querySelector('#main aside');
 
-  function focus() {
-    el.classList.add('focus');
-  }
-
-  function blur() {
-    el.classList.remove('focus');
-  }
-
 
 
   app.aside = {
-    focus: focus,
-    blur: blur
+
+    focus: function () {
+      el.classList.add('focus');
+    },
+
+
+    blur: function () {
+      el.classList.remove('focus');
+    }
+
   };
+
+
 
 }(document, slangbook);

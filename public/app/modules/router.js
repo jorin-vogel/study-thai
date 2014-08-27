@@ -1,10 +1,17 @@
 !function (doc, app) {
 
 
-  function go(url) {
-    history.pushState(null, null, url);
-    handleRoute(true);
-  }
+
+  app.router = {
+
+    go: function (url) {
+      history.pushState(null, null, url);
+      handleRoute(true);
+    }
+
+  };
+
+
 
   function handleRoute (animate) {
     var url, match;
@@ -28,15 +35,17 @@
     }
     // /*
     else {
-      go('/');
+      app.router.go('/');
     }
   };
+
+
 
 
   doc.body.addEventListener('click', function (e) {
     if (e.target && e.target.nodeName == 'A') {
       e.preventDefault();
-      go(e.target.getAttribute('href'));
+      app.router.go(e.target.getAttribute('href'));
     }
   }, true);
 
@@ -44,14 +53,11 @@
     handleRoute(false);
   });
 
+
   window.onpopstate = function() {
     handleRoute(false);
   };
 
 
-
-  app.router = {
-    go: go
-  };
 
 }(document, slangbook);

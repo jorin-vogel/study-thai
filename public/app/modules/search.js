@@ -4,6 +4,8 @@
 
   el = doc.getElementById('search');
 
+
+
   function filterPhrases() {
     var i, filter, item;
 
@@ -15,15 +17,18 @@
     }
   }
 
+
   function showAll() {
     for (i = 0; i < app.list.items.length; i++) {
       app.list.items[i].style.display = '';
     }
   }
 
+
   function escapeRegExp(str) {
     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
   }
+
 
 
   el.addEventListener('focus', function (e) {
@@ -34,7 +39,9 @@
     }, 0);
   });
 
+
   el.addEventListener('blur', app.aside.blur);
+
 
   el.addEventListener('keyup', function (e) {
     // enter or escape
@@ -43,8 +50,11 @@
     }
   });
 
+
   el.addEventListener('input', function () {
     el.value ? filterPhrases() : showAll();
   });
+
+
 
 }(document, slangbook);
