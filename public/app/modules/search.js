@@ -30,7 +30,7 @@
     app.aside.focus();
 
     setTimeout(function () {
-      el.select();
+      el.setSelectionRange(0, el.value.length);
     }, 0);
   });
 
