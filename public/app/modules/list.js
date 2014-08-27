@@ -10,6 +10,7 @@
 
   function createItem(phrase) {
     var item = baseItem.cloneNode(true);
+    console.log('createItem', phrase)
     updateItem(item, phrase);
     return item;
   }
@@ -36,6 +37,7 @@
 
   function update(oldPhrase, newPhrase) {
     var index = app.phrase.indexOf(oldPhrase);
+    console.log(index, arguments)
     updateItem(el.children[index], newPhrase);
   }
 
