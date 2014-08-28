@@ -14,10 +14,9 @@
     },
 
 
-    match: function (index, query) {
-      var phrase, i, props;
+    match: function (phrase, query) {
+      var i, props;
 
-      phrase = data[index];
       props = Object.keys(phrase);
 
       for (i = 0; i < props.length; i++) {

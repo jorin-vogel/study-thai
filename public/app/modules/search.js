@@ -1,19 +1,31 @@
 !function (doc, app) {
 
-  var el;
+  var el, filter;
 
-  el = doc.getElementById('search');
+  el     = doc.getElementById('search');
+  filter = /.*/;
+
+
+
+  app.search = {
+
+    handle: function (item, phrase) {
+      item.style.display = app.phrase.match(phrase, filter) ? '' : 'none';
+    }
+
+  };
 
 
 
   function filterPhrases() {
-    var i, filter, item;
+    var i, item, phrase;
 
     filter = new RegExp(escapeRegExp(el.value), 'i');
 
     for (i = 0; i < app.list.items.length; i++) {
       item = app.list.items[i];
-      item.style.display = app.phrase.match(i, filter) ? '' : 'none';
+      phrase = app.phrase.byId(item.getAttribute('data-id'));
+      app.search.handle(item, phrase);
     }
   }
 

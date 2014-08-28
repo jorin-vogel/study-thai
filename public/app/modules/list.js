@@ -16,7 +16,7 @@
 
     add: function (phrase) {
       var item = createItem(phrase);
-      item.querySelector('a').display = 'none';
+      item.querySelector('a').style.display = 'none';
       el.insertBefore(item, el.firstChild);
     },
 
@@ -33,14 +33,18 @@
 
     reload: function () {
       el.innerHTML = '';
-      load();
+      var itemContainer = doc.createDocumentFragment();
+      app.phrase.forEach(function (phrase) {
+        itemContainer.appendChild( createItem(phrase) );
+      });
+      el.appendChild(itemContainer);
     },
 
 
     updateId: function (oldId, newId) {
       var item = byId(oldId);
       setItemId(item, newId);
-      item.querySelector('a').display = '';
+      item.querySelector('a').style.display = '';
     }
 
   };
@@ -55,6 +59,7 @@
 
 
   function updateItem(item, phrase) {
+    app.search.handle(item, phrase);
     var paragraphs = item.getElementsByTagName('p');
     paragraphs[0].textContent = phrase.lang1;
     paragraphs[1].textContent = phrase.lang2;
@@ -73,18 +78,9 @@
   }
 
 
-  function load() {
-    var itemContainer = doc.createDocumentFragment();
-    app.phrase.forEach(function (phrase) {
-      itemContainer.appendChild( createItem(phrase) );
-    });
-    el.appendChild(itemContainer);
-  }
 
 
-
-
-  doc.addEventListener('DOMContentLoaded', load);
+  doc.addEventListener('DOMContentLoaded', app.list.reload);
 
 
 }(document, slangbook);
