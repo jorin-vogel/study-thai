@@ -4,7 +4,7 @@
   white     : #FDFDFD
   grey      : #8D8D8D
   light-grey: #363636
-
+  red       : #F53C4B
 */
 
 html, body {
@@ -100,7 +100,9 @@ input[type="text"]:focus {
   font-size: 16px;
   font-weight: 400;
 }
-
+#phrases p:empty ~ a {
+  color: #F53C4B;
+}
 
 
 #main aside {
